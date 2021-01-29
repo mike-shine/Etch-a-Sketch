@@ -8,6 +8,10 @@ const clearButton = document.createElement('button');
 clearButton.textContent = 'Clear grid';
 body.appendChild(clearButton);
 
+const changeColor = document.createElement('button');
+changeColor.textContent = 'Change color';
+body.appendChild(changeColor);
+
 const container = document.createElement('div');
 container.classList.add('container');
 body.appendChild(container);
@@ -52,12 +56,24 @@ function whitenAll() {
   }
 }
 
+function changeTheColor() {
+  console.log('I like turtles');
+  let allSquares = document.getElementsByClassName('square');
+  const randomColor = Math.floor(Math.random()*16777215).toString(16);
+  for (let i = allSquares.length - 1; i >= 0; i--) {
+    allSquares[i].addEventListener('mouseover', () => {
+      allSquares[i].style.backgroundColor = '#' + randomColor;
+    });
+  }
+}
+
 
 modifySize();
 
 
 resizeButton.addEventListener('click', modifySize);
 clearButton.addEventListener('click', whitenAll);
+changeColor.addEventListener('click', changeTheColor);
 
 
 // figure out padding issue, of how to adjust padding when number of squares changes. Is my CSS just overwriting all changes I try to make?
