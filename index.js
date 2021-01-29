@@ -39,7 +39,6 @@ function modifySize() {
     }
     let allSquares = document.querySelectorAll('square')
   }
-  console.log(document.querySelectorAll('square'));
 }
 
 function removeGrid() {

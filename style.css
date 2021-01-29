@@ -1,3 +1,9 @@
+* {
+  font-family: 'Indie Flower', cursive;
+}
+
+
+
 .container {
   display: flex;
   flex-wrap: wrap;
