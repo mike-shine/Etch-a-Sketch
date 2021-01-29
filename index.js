@@ -14,6 +14,7 @@ body.appendChild(changeColor);
 
 const container = document.createElement('div');
 container.classList.add('container');
+container.style.border = '1 px solid black';
 body.appendChild(container);
 
 
@@ -27,13 +28,12 @@ function modifySize() {
     removeGrid();
     for (let i = 0; i < gridWidth**2; i++) {
       let div = document.createElement('div');
-      div.style.border = '1px solid';
       div.classList.add('square');
       let heightPixels = 1225 / gridWidth - 2;
       div.style.height = `${heightPixels}px`;
       div.style.width = div.style.height;
       div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = "blue";
+        div.style.backgroundColor = "black";
       })
       container.appendChild(div);
     }
@@ -57,7 +57,6 @@ function whitenAll() {
 }
 
 function changeTheColor() {
-  console.log('I like turtles');
   let allSquares = document.getElementsByClassName('square');
   const randomColor = Math.floor(Math.random()*16777215).toString(16);
   for (let i = allSquares.length - 1; i >= 0; i--) {
