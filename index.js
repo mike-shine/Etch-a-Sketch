@@ -21,7 +21,7 @@ body.appendChild(container);
 
 
 function modifySize() {
-  let gridWidth = prompt('How many squares wide would you like this grid to be?');
+  let gridWidth = prompt('How many squares wide would you like this grid to be? (Larger number = greater detail)');
   if (gridWidth > 100) {
     alert('Error: Too many squares! Please pick a value that is 100 or less.')
   } else {
@@ -73,18 +73,3 @@ modifySize();
 resizeButton.addEventListener('click', modifySize);
 clearButton.addEventListener('click', whitenAll);
 changeColor.addEventListener('click', changeTheColor);
-
-
-// figure out padding issue, of how to adjust padding when number of squares changes. Is my CSS just overwriting all changes I try to make?
-
-// is this a string immutability issue???? I'm just reassigning HTML collection object key values...
-
-// `(1225 / ${gridWidth} / 13.1)vw`
-
-
-// let allSquares = document.getElementsByClassName('square');
-// allSquares[i].style.height = `(1225/${gridWidth}/13.1)vw`;
-// allSquares[i].style.width = `(1225/${gridWidth}/13.1)vw`;
-// allSquares[i].style.padding = '2em';
-
-// `200px`;
