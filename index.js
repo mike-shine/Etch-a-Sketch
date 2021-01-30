@@ -15,6 +15,10 @@ changeColor.textContent = 'Change color';
 changeColor.setAttribute('id', 'changeColor')
 body.appendChild(changeColor);
 
+const eraserButton = document.createElement('button');
+eraserButton.textContent = 'Eraser';
+body.appendChild(eraserButton);
+
 const container = document.createElement('div');
 container.classList.add('container');
 container.style.border = '1 px solid black';
@@ -73,6 +77,10 @@ function mouseOverChangeColor(color, element) {
   });
 };
 
+function eraser() {
+  currentColor = 'white';
+}
+
 
 modifySize();
 
@@ -80,3 +88,4 @@ modifySize();
 resizeButton.addEventListener('click', modifySize);
 clearButton.addEventListener('click', whitenAll);
 changeColor.addEventListener('click', changeTheColor);
+eraserButton.addEventListener('click', eraser);
