@@ -2,20 +2,25 @@ const body = document.querySelector('#body');
 
 const resizeButton = document.createElement('button');
 resizeButton.textContent = 'Resize grid';
+resizeButton.setAttribute('id', 'resizeButton')
 body.appendChild(resizeButton);
 
 const clearButton = document.createElement('button');
 clearButton.textContent = 'Clear grid';
+clearButton.setAttribute('id', 'clearButton')
 body.appendChild(clearButton);
 
 const changeColor = document.createElement('button');
 changeColor.textContent = 'Change color';
+changeColor.setAttribute('id', 'changeColor')
 body.appendChild(changeColor);
 
 const container = document.createElement('div');
 container.classList.add('container');
 container.style.border = '1 px solid black';
 body.appendChild(container);
+
+let currentColor = 'black';
 
 
 
@@ -32,38 +37,41 @@ function modifySize() {
       let heightPixels = 1225 / gridWidth - 2;
       div.style.height = `${heightPixels}px`;
       div.style.width = div.style.height;
-      div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = "black";
-      })
+      mouseOverChangeColor(currentColor, div);
       container.appendChild(div);
     }
     let allSquares = document.querySelectorAll('square')
   }
-}
+};
 
 function removeGrid() {
   let allSquares = document.getElementsByClassName('square');
   for (let i = allSquares.length - 1; i >= 0; i--) {
     allSquares[i].remove();
   }
-}
+};
 
 function whitenAll() {
   let allSquares = document.getElementsByClassName('square');
   for (let i = allSquares.length - 1; i >= 0; i--) {
     allSquares[i].style.backgroundColor = 'white';
   }
-}
+};
 
 function changeTheColor() {
   let allSquares = document.getElementsByClassName('square');
   const randomColor = Math.floor(Math.random()*16777215).toString(16);
+  currentColor = '#' + randomColor;
   for (let i = allSquares.length - 1; i >= 0; i--) {
-    allSquares[i].addEventListener('mouseover', () => {
-      allSquares[i].style.backgroundColor = '#' + randomColor;
-    });
+    mouseOverChangeColor(currentColor, allSquares[i]);
   }
-}
+};
+
+function mouseOverChangeColor(color, element) {
+  element.addEventListener('mouseover', (color) => {
+    element.style.backgroundColor = currentColor;
+  });
+};
 
 
 modifySize();

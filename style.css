@@ -2,6 +2,21 @@
   font-family: 'Indie Flower', cursive;
 }
 
+h1 {
+  text-align: center;
+}
+
+button {
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+body {
+  text-align: center;
+}
 
 
 .container {
@@ -9,5 +24,7 @@
   flex-wrap: wrap;
   width: 1225px;
   border: 1px solid;
+  margin-left: auto;
+  margin-right: auto;
 }
 
